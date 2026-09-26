@@ -26,7 +26,8 @@ const TEXT = {
         weekHelp: "The weekly limit across all models. Like the session, it is shared by all your devices and apps.",
         otherHelp: "An additional limit reported by Claude Code.",
         legend: "Colours: green below %1%, yellow from %1%, red from %2%.",
-        local: "This machine (approximate)",
+        local: "This machine only (estimate)",
+        localNote: "The percentages above cover your whole account. This breakdown is Claude Code's own estimate from logs on this computer, so it shows what was done here, not your total usage. Claude Code's original note follows.",
         updated: "Updated %1 · source: claude /usage",
         refresh: "Refresh now",
         settings: "Settings",
@@ -51,7 +52,8 @@ const TEXT = {
         weekHelp: "Недельный лимит по всем моделям. Как и сессия, общий для всех ваших устройств и приложений.",
         otherHelp: "Дополнительный лимит, который сообщает Claude Code.",
         legend: "Цвета: зелёный до %1%, жёлтый от %1%, красный от %2%.",
-        local: "Эта машина (приблизительно)",
+        local: "Только эта машина (оценка)",
+        localNote: "Проценты выше — по всему аккаунту. Эта разбивка — оценка самого Claude Code по логам на этом компьютере: она показывает, что сделано здесь, а не ваше полное использование. Ниже — оригинальная пометка Claude Code.",
         updated: "Обновлено %1 · источник: claude /usage",
         refresh: "Обновить сейчас",
         settings: "Настройки",
@@ -362,6 +364,7 @@ class ClaudeUsageApplet extends Applet.TextApplet {
 
         if (this.usage.detail) {
             this.contentBox.add_actor(this._label(t.local, "font-weight: bold;"));
+            this.contentBox.add_actor(this._label(t.localNote, "font-size: 85%;", true));
             this.contentBox.add_actor(this._label(this.usage.detail, "font-size: 85%; color: rgba(160,160,160,1);", true));
         }
 
