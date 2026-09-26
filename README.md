@@ -58,3 +58,11 @@ This is not the first tool of its kind. Related projects:
 This project differs by reading `claude -p /usage` instead of the OAuth endpoint.
 The output format of `/usage` is not a stable API; if it changes, the parser in
 `applet.js` (`ROW_RE`) needs an update.
+
+## Contact
+
+Questions and bug reports: open an issue, or write to apk.workpost@yandex.ru.
+
+## License
+
+MIT, see [LICENSE](LICENSE).
