@@ -1,0 +1,147 @@
+{
+  "layout": {
+    "type": "layout",
+    "pages": ["page-general", "page-colors", "page-notify"],
+    "page-general": {
+      "type": "page",
+      "title": "General",
+      "sections": ["sec-data", "sec-panel"]
+    },
+    "page-colors": {
+      "type": "page",
+      "title": "Colors",
+      "sections": ["sec-levels", "sec-palette"]
+    },
+    "page-notify": {
+      "type": "page",
+      "title": "Notifications",
+      "sections": ["sec-notify-main", "sec-notify-thresholds"]
+    },
+    "sec-data": {
+      "type": "section",
+      "title": "Data",
+      "keys": ["refresh-minutes", "claude-path", "language"]
+    },
+    "sec-panel": {
+      "type": "section",
+      "title": "Panel",
+      "keys": ["label-mode", "show-prefixes"]
+    },
+    "sec-levels": {
+      "type": "section",
+      "title": "Colour levels",
+      "keys": ["warn-threshold", "crit-threshold"]
+    },
+    "sec-palette": {
+      "type": "section",
+      "title": "Palette",
+      "keys": ["color-ok", "color-warn", "color-crit"]
+    },
+    "sec-notify-main": {
+      "type": "section",
+      "title": "Notifications",
+      "keys": ["notify-enabled", "test-notification"]
+    },
+    "sec-notify-thresholds": {
+      "type": "section",
+      "title": "Notify when usage reaches (comma-separated %)",
+      "dependency": "notify-enabled",
+      "keys": ["session-thresholds", "week-thresholds"]
+    }
+  },
+  "refresh-minutes": {
+    "type": "spinbutton",
+    "default": 5,
+    "min": 1,
+    "max": 60,
+    "step": 1,
+    "units": "minutes",
+    "description": "Refresh interval",
+    "tooltip": "How often to run `claude -p /usage`. Each run takes about two seconds and does not consume tokens."
+  },
+  "claude-path": {
+    "type": "entry",
+    "default": "",
+    "description": "Path to the claude binary",
+    "tooltip": "Leave empty to look in PATH and ~/.local/bin"
+  },
+  "language": {
+    "type": "combobox",
+    "default": "auto",
+    "description": "Language",
+    "options": {
+      "Automatic": "auto",
+      "English": "en",
+      "Русский": "ru"
+    }
+  },
+  "label-mode": {
+    "type": "combobox",
+    "default": "both",
+    "description": "What to show in the panel",
+    "options": {
+      "Session and week": "both",
+      "Session only": "session",
+      "Week only": "week",
+      "Highest of the two": "max"
+    }
+  },
+  "show-prefixes": {
+    "type": "switch",
+    "default": true,
+    "description": "Show S / W prefixes"
+  },
+  "warn-threshold": {
+    "type": "spinbutton",
+    "default": 70,
+    "min": 1,
+    "max": 100,
+    "step": 1,
+    "units": "%",
+    "description": "Warning colour from"
+  },
+  "crit-threshold": {
+    "type": "spinbutton",
+    "default": 90,
+    "min": 1,
+    "max": 100,
+    "step": 1,
+    "units": "%",
+    "description": "Critical colour from"
+  },
+  "color-ok": {
+    "type": "colorchooser",
+    "default": "rgb(115,210,22)",
+    "description": "Normal"
+  },
+  "color-warn": {
+    "type": "colorchooser",
+    "default": "rgb(252,175,62)",
+    "description": "Warning"
+  },
+  "color-crit": {
+    "type": "colorchooser",
+    "default": "rgb(239,41,41)",
+    "description": "Critical"
+  },
+  "notify-enabled": {
+    "type": "switch",
+    "default": true,
+    "description": "Enable desktop notifications"
+  },
+  "test-notification": {
+    "type": "button",
+    "description": "Send a test notification",
+    "callback": "on_test_notification"
+  },
+  "session-thresholds": {
+    "type": "entry",
+    "default": "70,90",
+    "description": "Session limit"
+  },
+  "week-thresholds": {
+    "type": "entry",
+    "default": "70,90",
+    "description": "Weekly limit"
+  }
+}

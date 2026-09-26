@@ -1,0 +1,6 @@
+[Unit]
+Description=Check Claude Code plan usage (/usage) and notify on thresholds
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/claude-usage-alert

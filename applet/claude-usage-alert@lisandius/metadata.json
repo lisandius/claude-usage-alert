@@ -1,0 +1,8 @@
+{
+  "uuid": "claude-usage-alert@lisandius",
+  "name": "Claude Usage Alert",
+  "description": "Shows your real Claude Code plan usage (session and weekly %) in the panel, colour-coded, with explanations and threshold notifications. Data comes from `claude -p /usage`.",
+  "version": "0.1.0",
+  "icon": "dialog-information-symbolic",
+  "max-instances": 1
+}
